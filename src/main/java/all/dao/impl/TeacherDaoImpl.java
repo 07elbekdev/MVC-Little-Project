@@ -1,7 +1,7 @@
 package all.dao.impl;
 
-import all.dao.CompanyDao;
-import all.model.Company;
+import all.dao.TeacherDao;
+import all.model.Teacher;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,46 +13,46 @@ import java.util.List;
 @Repository
 @Transactional
 
-public class CompanyDaoImpl implements CompanyDao {
+public class TeacherDaoImpl implements TeacherDao {
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public List<Company> findAll() {
+    public List<Teacher> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("select c from Company c", Company.class).getResultList();
+        return session.createQuery("select p from Teacher p", Teacher.class).getResultList();
     }
 
     @Override
-    public Company findById(int id) {
+    public Teacher findById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(Company.class, id);
+        return session.get(Teacher.class, id);
     }
 
     @Override
-    public void save(Company company) {
+    public void save(Teacher teacher) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(company);
+        session.save(teacher);
     }
 
     @Override
     public void deleteById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        session.createQuery("delete from Company where id=:companyId").setParameter("companyId", id).executeUpdate();
+        session.createQuery("delete from Teacher where id=:teacherId").setParameter("teacherId", id).executeUpdate();
     }
 
     @Override
-    public void updateCompany(int id, Company company) {
+    public void updateTeacher(int id, Teacher teacher) {
         Session session = sessionFactory.getCurrentSession();
-        Company company1 = findById(id);
-        company1.setName(company.getName());
-        company1.setAge(company.getAge());
-        session.merge(company1);
+        Teacher teacher1 = findById(id);
+        teacher1.setName(teacher.getName());
+        teacher1.setAge(teacher.getAge());
+        session.merge(teacher1);
     }
 
     @Override
     public void clear() {
         Session session = sessionFactory.getCurrentSession();
-        session.createQuery("delete from Company").executeUpdate();
+        session.createQuery("delete from Teacher").executeUpdate();
     }
 }

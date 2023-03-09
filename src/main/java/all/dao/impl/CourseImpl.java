@@ -1,7 +1,7 @@
 package all.dao.impl;
 
-import all.dao.CompanyDao;
-import all.model.Company;
+import all.dao.CourseDao;
+import all.model.Course;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,46 +13,46 @@ import java.util.List;
 @Repository
 @Transactional
 
-public class CompanyDaoImpl implements CompanyDao {
+public class CourseImpl implements CourseDao {
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public List<Company> findAll() {
+    public List<Course> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("select c from Company c", Company.class).getResultList();
+        return session.createQuery("select p from Course p", Course.class).getResultList();
     }
 
     @Override
-    public Company findById(int id) {
+    public Course findById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(Company.class, id);
+        return session.get(Course.class, id);
     }
 
     @Override
-    public void save(Company company) {
+    public void save(Course course) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(company);
+        session.save(course);
     }
 
     @Override
     public void deleteById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        session.createQuery("delete from Company where id=:companyId").setParameter("companyId", id).executeUpdate();
+        session.createQuery("delete from Course where id=:courseId").setParameter("courseId", id).executeUpdate();
     }
 
     @Override
-    public void updateCompany(int id, Company company) {
+    public void updateCourse(int id, Course course) {
         Session session = sessionFactory.getCurrentSession();
-        Company company1 = findById(id);
-        company1.setName(company.getName());
-        company1.setAge(company.getAge());
-        session.merge(company1);
+        Course course1 = findById(id);
+        course1.setName(course.getName());
+        course1.setAge(course.getAge());
+        session.merge(course1);
     }
 
     @Override
     public void clear() {
         Session session = sessionFactory.getCurrentSession();
-        session.createQuery("delete from Company").executeUpdate();
+        session.createQuery("delete from Course").executeUpdate();
     }
 }

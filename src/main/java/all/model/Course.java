@@ -18,7 +18,7 @@ public class Course {
     private int id;
     private String name;
     private int age;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "course",cascade = CascadeType.ALL)
     private Teacher teacher;
     @ManyToOne
     @JoinColumn(name = "company_id")

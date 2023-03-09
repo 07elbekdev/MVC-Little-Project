@@ -2,15 +2,14 @@ package all.controller;
 
 import all.dao.CompanyDao;
 import all.model.Company;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CompanyController {
+    @Autowired
     private final CompanyDao companyDao;
 
     public CompanyController(CompanyDao companyDao) {
@@ -20,26 +19,23 @@ public class CompanyController {
     @GetMapping("/")
     public String findAll(Model model) {
         model.addAttribute("all", companyDao.findAll());
-        return "find-all";
+        return "show-all";
     }
 
     @PostMapping("/saveCompany")
-    private String saveCompany(@RequestParam("name") String name, @RequestParam("age") int age) {
-        Company company = new Company();
-        company.setName(name);
-        company.setAge(age);
+    private String saveCompany(@ModelAttribute("company") Company company) {
         companyDao.save(company);
         return "redirect:/";
     }
 
     @GetMapping("/saveCompanyForm")
-    public String saveStudentPage() {
+    public String saveCompanyPage() {
         return "company-add";
     }
 
     @GetMapping("/delete/Company/{id}")
     public String deleteById(Model model, @PathVariable int id) {
-        Company company = companyDao.findById(id);
+//        Company company = companyDao.findById(id);
         companyDao.deleteById(id);
         return "redirect:/";
     }
@@ -63,7 +59,7 @@ public class CompanyController {
         Company company = new Company();
         company.setName(name);
         company.setAge(age);
-        companyDao.updatePerson(id, company);
+        companyDao.updateCompany(id, company);
         return "redirect:/";
     }
 

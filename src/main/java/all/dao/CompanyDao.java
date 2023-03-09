@@ -13,7 +13,7 @@ public interface CompanyDao {
 
     void deleteById(int id);
 
-    void updatePerson(int id, Company company);
+    void updateCompany(int id, Company company);
 
     void clear();
 }

@@ -1,7 +1,7 @@
 package all.dao.impl;
 
-import all.dao.CompanyDao;
-import all.model.Company;
+import all.dao.GroupDao;
+import all.model.Group;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,46 +13,47 @@ import java.util.List;
 @Repository
 @Transactional
 
-public class CompanyDaoImpl implements CompanyDao {
+public class GroupDaoImpl implements GroupDao {
+
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public List<Company> findAll() {
+    public List<Group> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("select c from Company c", Company.class).getResultList();
+        return session.createQuery("select p from Group p", Group.class).getResultList();
     }
 
     @Override
-    public Company findById(int id) {
+    public Group findById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        return session.get(Company.class, id);
+        return session.get(Group.class, id);
     }
 
     @Override
-    public void save(Company company) {
+    public void save(Group group) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(company);
+        session.save(group);
     }
 
     @Override
     public void deleteById(int id) {
         Session session = sessionFactory.getCurrentSession();
-        session.createQuery("delete from Company where id=:companyId").setParameter("companyId", id).executeUpdate();
+        session.createQuery("delete from Group where id=:groupId").setParameter("groupId", id).executeUpdate();
     }
 
     @Override
-    public void updateCompany(int id, Company company) {
+    public void updateGroup(int id, Group group) {
         Session session = sessionFactory.getCurrentSession();
-        Company company1 = findById(id);
-        company1.setName(company.getName());
-        company1.setAge(company.getAge());
-        session.merge(company1);
+        Group group1 = findById(id);
+        group1.setName(group.getName());
+        group1.setAge(group.getAge());
+        session.merge(group1);
     }
 
     @Override
     public void clear() {
         Session session = sessionFactory.getCurrentSession();
-        session.createQuery("delete from Company").executeUpdate();
+        session.createQuery("delete from Group").executeUpdate();
     }
 }
