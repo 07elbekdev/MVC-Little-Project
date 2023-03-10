@@ -17,12 +17,23 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int age;
-    @OneToOne(mappedBy = "course",cascade = CascadeType.ALL)
-    private Teacher teacher;
+    private int duration;
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
-    @ManyToMany
-    private List<Course> course;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "course_group",
+            joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "group_id"))
+    private List<Group> groups;
+    @OneToOne(mappedBy = "course", cascade = CascadeType.ALL)
+    private Teacher teacher;
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "name='" + name + '\'' +
+                ", duration=" + duration +
+                '}';
+    }
 }

@@ -12,7 +12,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-
 public class CompanyDaoImpl implements CompanyDao {
     @Autowired
     private SessionFactory sessionFactory;
@@ -46,7 +45,7 @@ public class CompanyDaoImpl implements CompanyDao {
         Session session = sessionFactory.getCurrentSession();
         Company company1 = findById(id);
         company1.setName(company.getName());
-        company1.setAge(company.getAge());
+        company1.setLocatedCountry(company.getLocatedCountry());
         session.merge(company1);
     }
 

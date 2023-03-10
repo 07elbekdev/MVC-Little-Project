@@ -16,17 +16,17 @@
     <tr>
         <th>id</th>
         <th>name</th>
-        <th>duration</th>
+        <th>studentsAmount</th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <td>${get.id}</td>
         <td>${get.name}</td>
-        <td>${get.duration}</td>
+        <td>${get.studentsAmount}</td>
     </tr>
     </tbody>
 </table>
-<a href="/c">roll-back</a>
+<a href="/">Main</a>
 </body>
 </html>

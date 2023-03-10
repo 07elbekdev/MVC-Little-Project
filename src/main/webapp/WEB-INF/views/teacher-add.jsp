@@ -15,11 +15,11 @@
 
 </head>
 <body>
-<h1 class="j">Save course</h1>
-<form action="/saveCourse" method="post">
+<h1 class="j">Save teacher</h1>
+<form action="/saveTeacher" method="post">
     <label>Name:</label><input type="text" name="name">
-    <label>duration:</label><input type="text" name="duration">
-    <input type="submit" value="save-course">
+    <label>age:</label><input type="text" name="age">
+    <input type="submit" value="save-teacher">
 </form>
 </body>
 </html>

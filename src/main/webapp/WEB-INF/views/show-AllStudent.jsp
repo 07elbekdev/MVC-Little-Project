@@ -15,38 +15,33 @@
     </style>
 </head>
 <body>
-<h1 style="color: darkorange" align="center">Course</h1>
+<h1 style="color: aqua" align="center">Student</h1>
 <table>
     <thead>
     <tr>
         <th>id</th>
         <th>name</th>
-        <th>duration</th>
-        <th>Teacher</th>
+        <th>age</th>
+        <th>Student</th>
         <th>delete</th>
         <th>update</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${findAll}" var="course">
+    <c:forEach items="${findAll}" var="student">
         <tr>
-            <td>${course.id}</td>
+            <td>${student.id}</td>
             <td>
-                <a href="/getCourse/by/${course.id}">,${course.name}</a>
+                <a href="/get/by/${student.id}">,${student.name}</a>
             </td>
-            <td>${course.duration}</td>
+            <td>${student.age}</td>
             <td>
-                <form action="/t" method="get">
-                    <button type="submit">Teacher</button>
-                </form>
-            </td>
-            <td>
-                <form action="/delete/Course/${course.id}" method="get">
+                <form action="/delete/Student/${student.id}" method="get">
                     <button type="submit">DELETE</button>
                 </form>
             </td>
             <td>
-                <form action="/update/${course.id}" method="get">
+                <form action="/updateStudentBy/${student.id}" method="get">
                     <button type="submit">UPDATE</button>
                 </form>
             </td>
@@ -54,10 +49,10 @@
     </c:forEach>
     </tbody>
 </table>
-<a href="/saveCourseForm">add-course</a>
+<a href="/saveStudentForm">add-student</a>
 <br>
-<a href="/clearCourse">delete-all</a>
+<a href="/clearStudent">delete-all</a>
 <br>
-<a href="/">roll back</a>
+<a href="/g">roll back</a>
 </body>
 </html>

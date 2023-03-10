@@ -8,18 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>INSERT INTO COMPANY</title>
+    <title>INSERT INTO Student</title>
     <style>
         <%@include file="/WEB-INF/views/css/form.css" %>
     </style>
 
 </head>
 <body>
-<h1 class="j">Save course</h1>
-<form action="/saveCourse" method="post">
+<h1 class="j">Save student</h1>
+<form action="/saveStudent" method="post">
     <label>Name:</label><input type="text" name="name">
-    <label>duration:</label><input type="text" name="duration">
-    <input type="submit" value="save-course">
+    <label>age:</label><input type="text" name="age">
+    <input type="submit" value="save-student">
 </form>
 </body>
 </html>

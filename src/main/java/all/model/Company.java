@@ -15,23 +15,23 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int age;
+    private String locatedCountry;
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Course> courseList;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
     private List<Group> groups;
 
-    public Company(String name, int age) {
+    public Company(String name, String locatedCountry) {
         this.name = name;
-        this.age = age;
+        this.locatedCountry = locatedCountry;
     }
 
     @Override
     public String toString() {
         return "Company{" +
                 "name='" + name + '\'' +
-                ", age=" + age +
+                ", locatedCountry=" + locatedCountry +
                 '}';
     }
 }

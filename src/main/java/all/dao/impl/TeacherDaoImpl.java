@@ -12,7 +12,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-
 public class TeacherDaoImpl implements TeacherDao {
     @Autowired
     private SessionFactory sessionFactory;

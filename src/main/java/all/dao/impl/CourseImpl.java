@@ -12,7 +12,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-
 public class CourseImpl implements CourseDao {
     @Autowired
     private SessionFactory sessionFactory;
@@ -46,7 +45,7 @@ public class CourseImpl implements CourseDao {
         Session session = sessionFactory.getCurrentSession();
         Course course1 = findById(id);
         course1.setName(course.getName());
-        course1.setAge(course.getAge());
+        course1.setDuration(course.getDuration());
         session.merge(course1);
     }
 

@@ -16,17 +16,17 @@
     <tr>
         <th>id</th>
         <th>name</th>
-        <th>duration</th>
+        <th>age</th>
     </tr>
     </thead>
     <tbody>
     <tr>
         <td>${get.id}</td>
         <td>${get.name}</td>
-        <td>${get.duration}</td>
+        <td>${get.age}</td>
     </tr>
     </tbody>
 </table>
-<a href="/c">roll-back</a>
+<a href="/g">roll back</a>
 </body>
 </html>

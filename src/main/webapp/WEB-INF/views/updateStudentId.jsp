@@ -8,17 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>UPDATE COURSE</title>
+    <title>Student update</title>
     <style>
         <%@include file="/WEB-INF/views/css/form.css" %>
     </style>
 </head>
 <body>
-<h2>Update Course</h2>
-<form action="/updateCourseBy/${update.id}" method="post">
-    <label>Name:</label><input value="${update.name}" type="text" name="name">
-    <label>age:</label><input value="${update.age}" type="text" name="age">
-    <input type="submit" value="update-course">
+<h2>Update Student</h2>
+<form action="/updateStudentBy/${updates.id}" method="post">
+    <label>Name:</label><input value="${updates.name}" type="text" name="name">
+    <label>age:</label><input value="${updates.age}" type="text" name="age">
+    <input type="submit" value="update-student">
 </form>
 </body>
 </html>

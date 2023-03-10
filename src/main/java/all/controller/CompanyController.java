@@ -55,10 +55,10 @@ public class CompanyController {
     }
 
     @PostMapping("/real/update/{id}")
-    public String updateCompany(@RequestParam("name") String name, @RequestParam("age") int age, @PathVariable int id) {
+    public String updateCompany(@RequestParam("name") String name, @RequestParam("locatedCountry") String locatedCountry, @PathVariable int id) {
         Company company = new Company();
         company.setName(name);
-        company.setAge(age);
+        company.setLocatedCountry(locatedCountry);
         companyDao.updateCompany(id, company);
         return "redirect:/";
     }

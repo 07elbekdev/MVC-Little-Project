@@ -12,7 +12,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-
 public class GroupDaoImpl implements GroupDao {
 
     @Autowired
@@ -21,7 +20,7 @@ public class GroupDaoImpl implements GroupDao {
     @Override
     public List<Group> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("select p from Group p", Group.class).getResultList();
+        return session.createQuery("select g from Group g", Group.class).getResultList();
     }
 
     @Override
@@ -47,7 +46,7 @@ public class GroupDaoImpl implements GroupDao {
         Session session = sessionFactory.getCurrentSession();
         Group group1 = findById(id);
         group1.setName(group.getName());
-        group1.setAge(group.getAge());
+        group1.setStudentsAmount(group.getStudentsAmount());
         session.merge(group1);
     }
 

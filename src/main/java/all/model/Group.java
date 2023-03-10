@@ -17,13 +17,20 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private int age;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Student> studentList;
+    private int studentsAmount;
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
     @ManyToMany
     @JoinColumn(name = "course_id")
     private List<Course> courses;
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
+    private List<Student> studentList;
+    @Override
+    public String toString() {
+        return "Group{" +
+                "name='" + name + '\'' +
+                ", studentsAmount=" + studentsAmount +
+                '}';
+    }
 }
