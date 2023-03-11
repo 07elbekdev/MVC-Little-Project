@@ -27,11 +27,11 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${findAllG}" var="group">
+    <c:forEach items="${G}" var="group">
         <tr>
             <td>${group.id}</td>
             <td>
-                <a href="/getGroup/${group.id}">,${group.name}</a>
+                <a href="/getGroupBy/${group.id}">,${group.name}</a>
             </td>
             <td>${group.studentsAmount}</td>
             <td>

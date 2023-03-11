@@ -9,7 +9,6 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "company")
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -18,7 +18,7 @@ public class GroupController {
 
     @GetMapping("/g")
     public String findAll(Model model) {
-        model.addAttribute("findAllG", groupDao.findAll());
+        model.addAttribute("G", groupDao.findAll());
         return "show-AllGroup";
     }
 

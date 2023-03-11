@@ -11,7 +11,6 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "group")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +27,7 @@ public class Group {
     private List<Student> studentList;
     @Override
     public String toString() {
-        return "Group{" +
+        return "Group {" +
                 "name='" + name + '\'' +
                 ", studentsAmount=" + studentsAmount +
                 '}';

@@ -13,14 +13,13 @@ import java.util.List;
 @Repository
 @Transactional
 public class GroupDaoImpl implements GroupDao {
-
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
     public List<Group> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("select g from Group g", Group.class).getResultList();
+        return session.createQuery("select p from Group p", Group.class).getResultList();
     }
 
     @Override
