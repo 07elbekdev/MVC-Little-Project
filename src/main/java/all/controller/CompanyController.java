@@ -46,11 +46,10 @@ public class CompanyController {
         model.addAttribute("comp", company);
         return "getById";
     }
-
     @GetMapping("/update/{id}")
     public String updateCompany(@PathVariable int id, Model model) {
         Company company = companyDao.findById(id);
-        model.addAttribute("update", company);
+        model.addAttribute("company", company);
         return "updateId";
     }
 

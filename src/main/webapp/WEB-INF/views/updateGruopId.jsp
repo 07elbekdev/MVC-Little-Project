@@ -15,9 +15,9 @@
 </head>
 <body>
 <h2>Update Company</h2>
-<form action="/updateGroupBy/${update.id}" method="post">
+<form action="/realGroup/update/${update.id}" method="post">
     <label>Name:</label><input value="${update.name}" type="text" name="name">
-    <label>age:</label><input value="${update.age}" type="text" name="age">
+    <label>studentsAmount:</label><input value="${update.studentsAmount}" type="text" name="age">
     <input type="submit" value="update-group">
 </form>
 </body>

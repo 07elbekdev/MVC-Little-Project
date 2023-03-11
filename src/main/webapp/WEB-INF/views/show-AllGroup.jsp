@@ -40,7 +40,7 @@
                 </form>
             </td>
             <td>
-                <form action="/update/${group.id}" method="get">
+                <form action="/updateGroupBy/${group.id}" method="get">
                     <button type="submit">UPDATE</button>
                 </form>
             </td>

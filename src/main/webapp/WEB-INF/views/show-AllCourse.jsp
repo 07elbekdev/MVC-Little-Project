@@ -46,7 +46,7 @@
                 </form>
             </td>
             <td>
-                <form action="/update/${course.id}" method="get">
+                <form action="/updateCourseBy/${course.id}" method="get">
                     <button type="submit">UPDATE</button>
                 </form>
             </td>

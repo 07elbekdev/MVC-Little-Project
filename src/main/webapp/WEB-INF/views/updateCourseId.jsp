@@ -15,9 +15,9 @@
 </head>
 <body>
 <h2>Update Course</h2>
-<form action="/updateCourseBy/${update.id}" method="post">
+<form action="/real/updateCourse/${update.id}" method="post">
     <label>Name:</label><input value="${update.name}" type="text" name="name">
-    <label>age:</label><input value="${update.age}" type="text" name="age">
+    <label>duration:</label><input value="${update.duration}" type="text" name="duration">
     <input type="submit" value="update-course">
 </form>
 </body>

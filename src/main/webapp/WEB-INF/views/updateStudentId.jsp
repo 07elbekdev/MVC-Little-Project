@@ -15,7 +15,7 @@
 </head>
 <body>
 <h2>Update Student</h2>
-<form action="/updateStudentBy/${updates.id}" method="post">
+<form action="/realStudent/update/${updates.id}" method="post">
     <label>Name:</label><input value="${updates.name}" type="text" name="name">
     <label>age:</label><input value="${updates.age}" type="text" name="age">
     <input type="submit" value="update-student">
