@@ -35,6 +35,11 @@
             </td>
             <td>${group.studentsAmount}</td>
             <td>
+                <form action="/s" method="get">
+                    <button type="submit">Student</button>
+                </form>
+            </td>
+            <td>
                 <form action="/delete/Group/${group.id}" method="get">
                     <button type="submit">DELETE</button>
                 </form>

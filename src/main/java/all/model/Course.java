@@ -21,8 +21,8 @@ public class Course {
     private Teacher teacher;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "course_group",
-            joinColumns = @JoinColumn(name = "course_id"))
-    private List<Group> groups;
+            joinColumns = @JoinColumn(name = "group_id"))
+    private List<Groups> groups;
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;

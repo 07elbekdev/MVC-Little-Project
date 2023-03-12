@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
-public class Group {
+public class Groups {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -20,11 +20,12 @@ public class Group {
     @ManyToOne
     @JoinColumn(name = "company_id")
     private Company company;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
     private List<Course> courses;
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
     private List<Student> studentList;
+
     @Override
     public String toString() {
         return "Group {" +

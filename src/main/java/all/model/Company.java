@@ -19,7 +19,7 @@ public class Company {
     private List<Course> courseList;
 
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private List<Group> groups;
+    private List<Groups> groups;
 
     public Company(String name, String locatedCountry) {
         this.name = name;

@@ -16,7 +16,8 @@ public class Student {
     private int id;
     private String name;
     private int age;
+    private StudyFormat studyFormat;
     @ManyToOne
     @JoinColumn(name = "group_id")
-    private Group group;
+    private Groups group;
 }

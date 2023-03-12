@@ -14,10 +14,10 @@
     </style>
 </head>
 <body>
-<h2>Update Company</h2>
+<h2>Update Group</h2>
 <form action="/realGroup/update/${update.id}" method="post">
     <label>Name:</label><input value="${update.name}" type="text" name="name">
-    <label>studentsAmount:</label><input value="${update.studentsAmount}" type="text" name="age">
+    <label>studentsAmount:</label><input value="${update.studentsAmount}" type="text" name="studentsAmount">
     <input type="submit" value="update-group">
 </form>
 </body>

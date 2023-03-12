@@ -42,9 +42,9 @@ public class WebAppConfig implements WebMvcConfigurer {
 
     public Properties hibernateProperties() {
         Properties properties = new Properties();
-        properties.setProperty(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
+        properties.setProperty(Environment.DIALECT, "org.hibernate.dialect.PostgreSQL10Dialect");
         properties.setProperty(Environment.SHOW_SQL, "true");
-        properties.setProperty(Environment.HBM2DDL_AUTO, "update");
+        properties.setProperty(Environment.HBM2DDL_AUTO, "create");
         return properties;
     }
 

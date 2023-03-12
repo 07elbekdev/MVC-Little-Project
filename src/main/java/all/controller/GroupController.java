@@ -1,7 +1,7 @@
 package all.controller;
 
-import all.dao.GroupDao;
-import all.model.Group;
+import all.dao.GroupsDao;
+import all.model.Groups;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class GroupController {
     @Autowired
-    private final GroupDao groupDao;
+    private final GroupsDao groupDao;
 
-    public GroupController(GroupDao groupDao) {
+    public GroupController(GroupsDao groupDao) {
         this.groupDao = groupDao;
     }
 
@@ -23,7 +23,7 @@ public class GroupController {
     }
 
     @PostMapping("/saveGroup")
-    public String saveCourse(@ModelAttribute Group group) {
+    public String saveCourse(@ModelAttribute Groups group) {
         groupDao.save(group);
         return "redirect:/g";
     }
@@ -35,28 +35,28 @@ public class GroupController {
 
     @GetMapping("/delete/Group/{id}")
     public String deleteById(Model model, @PathVariable int id) {
-        Group group = groupDao.findById(id);
+        Groups group = groupDao.findById(id);
         groupDao.deleteById(id);
         return "redirect:/g";
     }
 
     @GetMapping("/getGroup/by/{id}")
     public String getById(Model model, @PathVariable int id) {
-        Group group = groupDao.findById(id);
+        Groups group = groupDao.findById(id);
         model.addAttribute("get", group);
         return "getByIdGroup";
     }
 
     @GetMapping("/updateGroupBy/{id}")
     public String updateCourse(@PathVariable int id, Model model) {
-        Group group = groupDao.findById(id);
+        Groups group = groupDao.findById(id);
         model.addAttribute("update", group);
         return "updateGroupId";
     }
 
     @PostMapping("/realGroup/update/{id}")
     public String updateCourse(@RequestParam("name") String name, @RequestParam("studentsAmount") int studentsAmount, @PathVariable int id) {
-        Group group = new Group();
+        Groups group = new Groups();
         group.setName(name);
         group.setStudentsAmount(studentsAmount);
         groupDao.updateGroup(id, group);
