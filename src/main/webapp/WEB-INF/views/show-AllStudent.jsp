@@ -22,7 +22,6 @@
         <th>id</th>
         <th>name</th>
         <th>age</th>
-        <th>Student</th>
         <th>delete</th>
         <th>update</th>
     </tr>

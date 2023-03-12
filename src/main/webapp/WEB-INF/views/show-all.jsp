@@ -15,38 +15,45 @@
     </style>
 </head>
 <body>
-<h1  style="color: lime" align="center">Group</h1>
+<h1 style="color: slategrey" align="center">Hello Welcome to my Company !!!</h1>
+<h1 style="color: gold" align="center">Here you add a company --> </h1>
 <table>
     <thead>
     <tr>
         <th>id</th>
         <th>name</th>
-        <th>studentsAmount</th>
-        <th>Student</th>
+        <th>locatedCountry</th>
+        <th>Course</th>
+        <th>Group</th>
         <th>delete</th>
         <th>update</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${G}" var="group">
+    <c:forEach items="${all}" var="company">
         <tr>
-            <td>${group.id}</td>
+            <td>${company.id}</td>
             <td>
-                <a href="/getGroupBy/${group.id}">,${group.name}</a>
+                <a href="/get/by/${company.id}">,${company.name}</a>
             </td>
-            <td>${group.studentsAmount}</td>
+            <td>${company.locatedCountry}</td>
             <td>
-                <form action="/s" method="get">
-                    <button type="submit">Student</button>
+                <form action="/c" method="get">
+                    <button type="submit">Course</button>
                 </form>
             </td>
             <td>
-                <form action="/delete/Group/${group.id}" method="get">
+                <form action="/g" method="get">
+                    <button type="submit">Groups</button>
+                </form>
+            </td>
+            <td>
+                <form action="/delete/Company/${company.id}" method="get">
                     <button type="submit">DELETE</button>
                 </form>
             </td>
             <td>
-                <form action="/updateGroupBy/${group.id}" method="get">
+                <form action="/update/${company.id}" method="get">
                     <button type="submit">UPDATE</button>
                 </form>
             </td>
@@ -54,10 +61,8 @@
     </c:forEach>
     </tbody>
 </table>
-<a href="/saveGroupForm">add Groups</a>
+<a href="/saveCompanyForm">add-company</a>
 <br>
-<a href="/clearGroup">delete-all</a>
-<br>
-<a href="/">roll back</a>
+<a href="/clear">delete</a>
 </body>
 </html>
