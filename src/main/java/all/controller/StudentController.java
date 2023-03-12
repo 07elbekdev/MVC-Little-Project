@@ -2,6 +2,7 @@ package all.controller;
 
 import all.dao.StudentDao;
 import all.model.Student;
+import all.model.StudyFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,7 +51,7 @@ public class StudentController {
     @GetMapping("/updateStudentBy/{id}")
     public String updateCourse(@PathVariable int id, Model model) {
         Student student = studentDao.findById(id);
-        model.addAttribute("updates", student);
+        model.addAttribute("student", student);
         return "updateStudentId";
     }
 

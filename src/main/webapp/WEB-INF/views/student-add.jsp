@@ -19,6 +19,7 @@
 <form action="/saveStudent" method="post">
     <label>Name:</label><input type="text" name="name">
     <label>age:</label><input type="text" name="age">
+    <label>studyFormat:</label><input type="text" name="studyFormat">
     <input type="submit" value="save-student">
 </form>
 </body>

@@ -22,6 +22,7 @@
         <th>id</th>
         <th>name</th>
         <th>age</th>
+        <th>studyFormat</th>
         <th>delete</th>
         <th>update</th>
     </tr>
@@ -34,6 +35,7 @@
                 <a href="/get/by/${student.id}">,${student.name}</a>
             </td>
             <td>${student.age}</td>
+            <td>${student.studyFormat}</td>
             <td>
                 <form action="/delete/Student/${student.id}" method="get">
                     <button type="submit">DELETE</button>
