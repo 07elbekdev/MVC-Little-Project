@@ -6,17 +6,26 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private int age;
-    @OneToOne
-    @JoinColumn(name = "course_id")
+
+
+    @OneToOne(mappedBy = "teacher")
     private Course course;
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

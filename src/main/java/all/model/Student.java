@@ -6,10 +6,10 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,4 +20,12 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "group_id")
     private Groups group;
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

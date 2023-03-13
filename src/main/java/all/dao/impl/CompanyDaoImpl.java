@@ -38,6 +38,10 @@ public class CompanyDaoImpl implements CompanyDao {
     public void deleteById(int id) {
         Session session = sessionFactory.getCurrentSession();
         session.createQuery("delete from Company where id=:companyId").setParameter("companyId", id).executeUpdate();
+        session.createQuery("delete from Course where id=:courseId").setParameter("courseId", id).executeUpdate();
+        session.createQuery("delete from Groups where id=:groupsId").setParameter("groupsId", id).executeUpdate();
+        session.createQuery("delete from Student where id=:studentId").setParameter("studentId", id).executeUpdate();
+        session.createQuery("delete from Teacher where id=:teacherId").setParameter("teacherId", id).executeUpdate();
     }
 
     @Override

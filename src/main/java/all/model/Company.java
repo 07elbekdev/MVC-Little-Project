@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
+@Entity
 @NoArgsConstructor
 @Data
-@Entity
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

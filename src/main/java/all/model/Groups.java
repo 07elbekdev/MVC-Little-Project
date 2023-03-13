@@ -7,24 +7,22 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity
 public class Groups {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private int studentsAmount;
-    @ManyToOne
-    @JoinColumn(name = "company_id")
-    private Company company;
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "course_id")
-    private List<Course> courses;
-    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Student> studentList;
+    @ManyToMany(mappedBy = "groups")
+    private List<Course> courses;
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST})
+    private Company company;
 
     @Override
     public String toString() {

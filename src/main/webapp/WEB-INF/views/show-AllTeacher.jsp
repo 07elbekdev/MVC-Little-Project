@@ -31,7 +31,7 @@
         <tr>
             <td>${teacher.id}</td>
             <td>
-                <a href="/getTeacher/${teacher.id}">,${teacher.name}</a>
+                <a href="/getTeacherBy/${teacher.id}">,${teacher.name}</a>
             </td>
             <td>${teacher.age}</td>
             <td>
