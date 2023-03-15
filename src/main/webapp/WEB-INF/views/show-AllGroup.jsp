@@ -15,7 +15,7 @@
     </style>
 </head>
 <body style="background: cyan">
-<h1  style="color: lime" align="center">Group</h1>
+<h1  style="color: black" align="center">Group</h1>
 <table>
     <thead>
     <tr>

@@ -43,7 +43,7 @@ public class StudentController {
     @GetMapping("/getStudent/by/{id}")
     public String getById(Model model, @PathVariable int id) {
         Student student = studentDao.findById(id);
-        model.addAttribute("get", student);
+        model.addAttribute("student", student);
         return "getByIdStudent";
     }
 

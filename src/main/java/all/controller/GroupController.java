@@ -43,7 +43,7 @@ public class GroupController {
     @GetMapping("/getGroup/by/{id}")
     public String getById(Model model, @PathVariable int id) {
         Groups group = groupDao.findById(id);
-        model.addAttribute("get", group);
+        model.addAttribute("group", group);
         return "getByIdGroup";
     }
 

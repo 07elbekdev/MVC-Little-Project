@@ -21,9 +21,9 @@
     </thead>
     <tbody>
     <tr>
-        <td>${get.id}</td>
-        <td>${get.name}</td>
-        <td>${get.age}</td>
+        <td>${student.id}</td>
+        <td>${student.name}</td>
+        <td>${student.age}</td>
     </tr>
     </tbody>
 </table>
