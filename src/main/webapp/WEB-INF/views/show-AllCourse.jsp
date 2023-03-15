@@ -14,17 +14,17 @@
         <%@include file="/WEB-INF/views/css/table.css" %>
     </style>
 </head>
-<body>
+<body style="background: slategrey">
 <h1 style="color: darkorange" align="center">Course</h1>
 <table>
     <thead>
     <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>duration</th>
-        <th>Teacher</th>
-        <th>delete</th>
-        <th>update</th>
+        <th style="color: white">id</th>
+        <th style="color: white">name</th>
+        <th style="color: white">duration</th>
+        <th style="color: white">Teacher</th>
+        <th style="color: white">delete</th>
+        <th style="color: white">update</th>
     </tr>
     </thead>
     <tbody>

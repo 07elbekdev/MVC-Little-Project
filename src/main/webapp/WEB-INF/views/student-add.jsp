@@ -16,8 +16,8 @@
     </style>
 
 </head>
-<body>
-<h1 class="j">Save student</h1>
+<body style="background: palegreen">
+<h1 align="center" class="j">Save student</h1>
 <form action="/saveStudent" method="post">
     <label>Name:</label><input type="text" name="name">
     <label>age:</label><input type="text" name="age">

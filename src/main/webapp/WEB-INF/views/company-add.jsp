@@ -14,8 +14,8 @@
     </style>
 
 </head>
-<body>
-<h1 align="center" class="j">Save company</h1>
+<body style="background: lightskyblue">
+<h1 style="color: orange" align="center" class="j">Save company</h1>
 <form action="/saveCompany" method="post">
     <label>Name:</label><input type="text" name="name">
     <label>LocatedCountry:</label><input type="text" name="locatedCountry">

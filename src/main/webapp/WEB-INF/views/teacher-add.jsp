@@ -14,8 +14,8 @@
     </style>
 
 </head>
-<body>
-<h1 class="j">Save teacher</h1>
+<body style="background: aquamarine">
+<h1 align="center" class="j">Save teacher</h1>
 <form action="/saveTeacher" method="post">
     <label>Name:</label><input type="text" name="name">
     <label>age:</label><input type="text" name="age">

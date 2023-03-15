@@ -13,8 +13,8 @@
         <%@include file="/WEB-INF/views/css/form.css" %>
     </style>
 </head>
-<body>
-<h1 class="j">Save group</h1>
+<body style="background: sandybrown">
+<h1 style="color: black" align="center" class="j">Save group</h1>
 <form action="/saveGroup" method="post">
     <label>Name:</label><input type="text" name="name">
     <label>studentsAmount:</label><input type="text" name="StudentsAmount">
