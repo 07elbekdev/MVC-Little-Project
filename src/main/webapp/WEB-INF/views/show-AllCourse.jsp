@@ -14,7 +14,7 @@
         <%@include file="/WEB-INF/views/css/table.css" %>
     </style>
 </head>
-<body style="background: slategrey">
+<body style="background: navajowhite">
 <h1 style="color: darkorange" align="center">Course</h1>
 <table>
     <thead>

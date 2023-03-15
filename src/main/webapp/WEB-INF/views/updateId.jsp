@@ -13,8 +13,8 @@
         <%@include file="/WEB-INF/views/css/form.css" %>
     </style>
 </head>
-<body>
-<h2>Update Company</h2>
+<body style="background: lightblue">
+<h2 style="color: khaki" align="center">Update Company</h2>
 <form  action="/real/update/${company.id}" method="post" >
     <label>Name:</label><input value="${company.name}" type="text" name="name">
     <label>locatedCountry:</label><input value="${company.locatedCountry}" type="text" name="locatedCountry">

@@ -14,7 +14,7 @@
         <%@include file="/WEB-INF/views/css/table.css" %>
     </style>
 </head>
-<body style="background: lightpink">
+<body style="background: cyan">
 <h1  style="color: lime" align="center">Group</h1>
 <table>
     <thead>

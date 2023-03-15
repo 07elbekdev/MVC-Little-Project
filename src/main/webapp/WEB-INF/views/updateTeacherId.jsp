@@ -13,8 +13,8 @@
         <%@include file="/WEB-INF/views/css/form.css" %>
     </style>
 </head>
-<body>
-<h2>Update Company</h2>
+<body style="background: wheat">
+<h2 style="color: #4CAF50" align="center">Update Company</h2>
 <form action="/realTeacher/update/${update.id}" method="post">
     <label>Name:</label><input value="${update.name}" type="text" name="name">
     <label>age:</label><input value="${update.age}" type="text" name="age">

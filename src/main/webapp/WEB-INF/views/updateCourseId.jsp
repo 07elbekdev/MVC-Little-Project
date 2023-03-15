@@ -13,8 +13,8 @@
         <%@include file="/WEB-INF/views/css/form.css" %>
     </style>
 </head>
-<body>
-<h2>Update Course</h2>
+<body style="background: darkgoldenrod;">
+<h2 style="color: black" align="center">Update Course</h2>
 <form action="/real/updateCourse/${update.id}" method="post">
     <label>Name:</label><input value="${update.name}" type="text" name="name">
     <label>duration:</label><input value="${update.duration}" type="text" name="duration">
