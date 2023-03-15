@@ -1,7 +1,7 @@
 package all.dao.impl;
 
 import all.dao.CompanyDao;
-import all.model.Company;
+import all.model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

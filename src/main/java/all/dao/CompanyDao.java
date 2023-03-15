@@ -1,6 +1,6 @@
 package all.dao;
 
-import all.model.Company;
+import all.model.*;
 
 import java.util.List;
 

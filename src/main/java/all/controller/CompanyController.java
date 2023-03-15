@@ -1,7 +1,8 @@
 package all.controller;
 
 import all.dao.CompanyDao;
-import all.model.Company;
+import all.dao.CourseDao;
+import all.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,6 +47,7 @@ public class CompanyController {
         model.addAttribute("comp", company);
         return "getById";
     }
+
     @GetMapping("/update/{id}")
     public String updateCompany(@PathVariable int id, Model model) {
         Company company = companyDao.findById(id);

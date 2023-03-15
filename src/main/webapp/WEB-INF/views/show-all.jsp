@@ -14,19 +14,18 @@
         <%@include file="/WEB-INF/views/css/table.css" %>
     </style>
 </head>
-<body>
-<h1 style="color: slategrey" align="center">Hello Welcome to my Company !!!</h1>
-<h1 style="color: gold" align="center">Here you add a company --> </h1>
+<body style="background: orange">
+<h1 style="color: black" align="center">Hello ! Welcome to my Company !</h1>
 <table>
     <thead>
     <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>locatedCountry</th>
-        <th>Course</th>
-        <th>Group</th>
-        <th>delete</th>
-        <th>update</th>
+        <th style="color: white">id</th>
+        <th style="color: white">name</th>
+        <th style="color: white">locatedCountry</th>
+        <th style="color: white">Course</th>
+        <th style="color: white">Group</th>
+        <th style="color: white">delete</th>
+        <th style="color: white">update</th>
     </tr>
     </thead>
     <tbody>

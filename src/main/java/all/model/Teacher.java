@@ -17,7 +17,6 @@ public class Teacher {
     private String name;
     private int age;
 
-
     @OneToOne(mappedBy = "teacher")
     private Course course;
 

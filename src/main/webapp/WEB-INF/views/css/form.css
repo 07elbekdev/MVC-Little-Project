@@ -2,7 +2,6 @@ form {
     width: 50%;
     margin: auto;
 }
-
 label {
     display: block;
     margin-bottom: 8px;
@@ -11,7 +10,7 @@ label {
 input[type="text"], input[type="number"] {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid black;
     border-radius: 4px;
     margin-bottom: 16px;
     box-sizing: border-box;

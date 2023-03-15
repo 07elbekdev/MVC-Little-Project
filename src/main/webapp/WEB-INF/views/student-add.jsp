@@ -22,6 +22,11 @@
     <label>Name:</label><input type="text" name="name">
     <label>age:</label><input type="text" name="age">
     <label>studyFormat:</label><input type="text" name="studyFormat">
+    <c:forEach items="${G}" var="group">
+        <input type="radio" id="${group.id}" name="id" value="${group.id}">
+        <label for="${group.id}">${group.name}</label>
+    </c:forEach>
+    <br>
     <input type="submit" value="save-student">
 </form>
 </body>
