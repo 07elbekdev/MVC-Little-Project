@@ -41,7 +41,7 @@ public class TeacherController {
         return "redirect:/t";
     }
 
-    @GetMapping("/getTeacher/by/{id}")
+    @GetMapping("/getTeacherBy/{id}")
     public String getById(Model model, @PathVariable int id) {
         Teacher teacher = teacherDao.findById(id);
         model.addAttribute("get", teacher);

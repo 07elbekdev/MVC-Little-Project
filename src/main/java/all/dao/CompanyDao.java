@@ -16,4 +16,5 @@ public interface CompanyDao {
     void updateCompany(int id, Company company);
 
     void clear();
+    void ShowAllRelations(int id);
 }

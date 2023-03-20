@@ -62,6 +62,6 @@
 </table>
 <a href="/saveCompanyForm">add-company</a>
 <br>
-<a href="/clear">delete</a>
+<a href="/clear">delete</a><br>
 </body>
 </html>

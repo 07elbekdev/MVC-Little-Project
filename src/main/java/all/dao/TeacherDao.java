@@ -16,4 +16,6 @@ public interface TeacherDao {
     void updateTeacher(int id, Teacher teacher);
 
     void clear();
+
+    List<Teacher> showAllRelationsOfTeacher(int id);
 }

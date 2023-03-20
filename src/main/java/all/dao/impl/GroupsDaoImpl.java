@@ -1,6 +1,8 @@
 package all.dao.impl;
 
+import all.dao.CompanyDao;
 import all.dao.GroupsDao;
+import all.model.Company;
 import all.model.Groups;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -15,6 +18,8 @@ import java.util.List;
 public class GroupsDaoImpl implements GroupsDao {
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private CompanyDao companyDao;
 
     @Override
     public List<Groups> findAll() {
@@ -54,5 +59,18 @@ public class GroupsDaoImpl implements GroupsDao {
     public void clear() {
         Session session = sessionFactory.getCurrentSession();
         session.createQuery("delete from Groups ").executeUpdate();
+    }
+
+    @Override
+    public List<Groups> showAllRelationsOfGroup(int id) {
+        List<Groups> groups = new ArrayList<>();
+        Company company = companyDao.findById(id);
+        for (Groups group : findAll()) {
+            Groups groups1 = findById(group.getId());
+            if (groups1.getCompany().getId() == company.getId()) {
+                groups.add(groups1);
+            }
+        }
+        return groups;
     }
 }

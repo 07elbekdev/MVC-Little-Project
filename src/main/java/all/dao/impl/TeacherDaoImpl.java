@@ -1,6 +1,8 @@
 package all.dao.impl;
 
+import all.dao.CourseDao;
 import all.dao.TeacherDao;
+import all.model.Course;
 import all.model.Teacher;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -15,6 +18,8 @@ import java.util.List;
 public class TeacherDaoImpl implements TeacherDao {
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private CourseDao courseDao;
 
     @Override
     public List<Teacher> findAll() {
@@ -53,5 +58,20 @@ public class TeacherDaoImpl implements TeacherDao {
     public void clear() {
         Session session = sessionFactory.getCurrentSession();
         session.createQuery("delete from Teacher").executeUpdate();
+    }
+
+    @Override
+    public List<Teacher> showAllRelationsOfTeacher(int id) {
+        List<Teacher> teachers = new ArrayList<>();
+        List<Course> courses = courseDao.showAllTheRelationsOfCourse(id);
+        for (Course course : courses) {
+            for (Teacher teacher : findAll()) {
+                Teacher teacher1 = findById(teacher.getId());
+                if (teacher.getCourse().getId() == course.getId()) {
+                    teachers.add(teacher1);
+                }
+            }
+        }
+        return teachers;
     }
 }

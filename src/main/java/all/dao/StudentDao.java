@@ -16,4 +16,6 @@ public interface StudentDao {
     void updateStudent(int id, Student student);
 
     void clear();
+
+    List<Student> showAllRelationsOfStudent(int id);
 }

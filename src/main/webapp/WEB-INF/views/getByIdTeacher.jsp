@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<table border="1px">
+<table style="font-size: 30px" align="center" border="2px">
     <thead>
     <tr>
         <th>id</th>
@@ -27,6 +27,7 @@
     </tr>
     </tbody>
 </table>
-<a href="/">main</a>
+<a style="color: black" href="/c">roll back</a><br>
+<a style="color: black" href="/">main</a>
 </body>
 </html>

@@ -58,4 +58,10 @@ public class CompanyDaoImpl implements CompanyDao {
         Session session = sessionFactory.getCurrentSession();
         session.createQuery("delete from Company").executeUpdate();
     }
+
+    @Override
+    public void ShowAllRelations(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        session.createQuery("select p from Company p where id=:companyId");
+    }
 }

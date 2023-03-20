@@ -1,5 +1,6 @@
 package all.controller;
 
+import all.dao.CompanyDao;
 import all.dao.CourseDao;
 import all.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,13 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class CourseController {
 
-    @Autowired
     private final CourseDao courseDao;
+    private final CompanyDao companyDao;
 
-    public CourseController(CourseDao courseDao) {
+    @Autowired
+    public CourseController(CourseDao courseDao, CompanyDao companyDao) {
         this.courseDao = courseDao;
+        this.companyDao = companyDao;
     }
 
     @GetMapping("/c")
@@ -30,7 +33,8 @@ public class CourseController {
     }
 
     @GetMapping("/saveCourseForm")
-    public String saveCoursePage() {
+    public String saveCoursePage(Model model) {
+        model.addAttribute("company", companyDao.findAll());
         return "course-add";
     }
 

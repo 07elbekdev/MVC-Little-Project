@@ -1,5 +1,6 @@
 package all.controller;
 
+import all.dao.GroupsDao;
 import all.dao.StudentDao;
 import all.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class StudentController {
-    @Autowired
     private final StudentDao studentDao;
+    private final GroupsDao groupsDao;
 
-    public StudentController(StudentDao studentDao) {
+    @Autowired
+    public StudentController(StudentDao studentDao, GroupsDao groupsDao) {
         this.studentDao = studentDao;
+        this.groupsDao = groupsDao;
     }
 
     @GetMapping("/s")
@@ -29,7 +32,8 @@ public class StudentController {
     }
 
     @GetMapping("/saveStudentForm")
-    public String saveCoursePage() {
+    public String saveCoursePage(Model model) {
+        model.addAttribute("group",groupsDao.findAll());
         return "student-add";
     }
 
@@ -40,10 +44,10 @@ public class StudentController {
         return "redirect:/s";
     }
 
-    @GetMapping("/getStudent/by/{id}")
+    @GetMapping("/getStudentBy/{id}")
     public String getById(Model model, @PathVariable int id) {
         Student student = studentDao.findById(id);
-        model.addAttribute("student", student);
+        model.addAttribute("s", student);
         return "getByIdStudent";
     }
 

@@ -21,12 +21,13 @@
     </thead>
     <tbody>
     <tr>
-        <td>${group.id}</td>
-        <td>${group.name}</td>
-        <td>${group.studentsAmount}</td>
+        <td>${groups.id}</td>
+        <td>${groups.name}</td>
+        <td>${groups.studentsAmount}</td>
     </tr>
     </tbody>
 </table>
+<a href="/g">roll back</a>
 <a href="/">Main</a>
 </body>
 </html>

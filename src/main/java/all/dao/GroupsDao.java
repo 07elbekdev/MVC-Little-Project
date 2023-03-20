@@ -16,4 +16,6 @@ public interface GroupsDao {
     void updateGroup(int id, Groups group);
 
     void clear();
+
+    List<Groups> showAllRelationsOfGroup(int id);
 }

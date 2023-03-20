@@ -18,18 +18,6 @@
         <th>id</th>
         <th>name</th>
         <th>locatedCountry</th>
-        <th>CourseId</th>
-        <th>CourseName</th>
-        <th>CourseDuration</th>
-        <th>GroupId</th>
-        <th>GroupName</th>
-        <th>Students Amount</th>
-        <th>StudentId</th>
-        <th>StudentName</th>
-        <th>StudentAge</th>
-        <th>TeacherId</th>
-        <th>TeacherName</th>
-        <th>TeacherAge</th>
     </tr>
     </thead>
     <tbody>
@@ -40,6 +28,7 @@
     </tr>
     </tbody>
 </table>
+<a href="/showAllRelations/${comp.id}">show All the Relations</a><br>
 <a style="color: black" href="/">roll-back</a>
 </body>
 </html>

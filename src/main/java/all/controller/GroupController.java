@@ -1,5 +1,6 @@
 package all.controller;
 
+import all.dao.CourseDao;
 import all.dao.GroupsDao;
 import all.model.Groups;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class GroupController {
-    @Autowired
     private final GroupsDao groupDao;
+    private final CourseDao courseDao;
 
-    public GroupController(GroupsDao groupDao) {
+    @Autowired
+    public GroupController(GroupsDao groupDao, CourseDao courseDao) {
         this.groupDao = groupDao;
+        this.courseDao = courseDao;
     }
 
     @GetMapping("/g")
@@ -29,7 +32,8 @@ public class GroupController {
     }
 
     @GetMapping("/saveGroupForm")
-    public String saveCoursePage() {
+    public String saveCoursePage(Model model) {
+        model.addAttribute("course", courseDao.findAll());
         return "group-add";
     }
 
@@ -40,11 +44,11 @@ public class GroupController {
         return "redirect:/g";
     }
 
-    @GetMapping("/getGroup/by/{id}")
+    @GetMapping("/getGroupBy/{id}")
     public String getById(Model model, @PathVariable int id) {
-        Groups group = groupDao.findById(id);
-        model.addAttribute("group", group);
-        return "getByIdGroup";
+        Groups gr = groupDao.findById(id);
+        model.addAttribute("groups", gr);
+        return "getByIdGroups";
     }
 
     @GetMapping("/updateGroupBy/{id}")

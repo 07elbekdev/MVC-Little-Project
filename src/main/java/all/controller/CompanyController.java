@@ -1,7 +1,6 @@
 package all.controller;
 
-import all.dao.CompanyDao;
-import all.dao.CourseDao;
+import all.dao.*;
 import all.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,11 +9,19 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CompanyController {
-    @Autowired
     private final CompanyDao companyDao;
+    private final CourseDao courseDao;
+    private final GroupsDao groupsDao;
+    private final TeacherDao teacherDao;
+    private final StudentDao studentDao;
 
-    public CompanyController(CompanyDao companyDao) {
+    @Autowired
+    public CompanyController(CompanyDao companyDao, CourseDao courseDao, GroupsDao groupsDao, TeacherDao teacherDao, StudentDao studentDao) {
         this.companyDao = companyDao;
+        this.courseDao = courseDao;
+        this.groupsDao = groupsDao;
+        this.teacherDao = teacherDao;
+        this.studentDao = studentDao;
     }
 
     @GetMapping("/")
@@ -68,5 +75,19 @@ public class CompanyController {
     public String clear() {
         companyDao.clear();
         return "redirect:/";
+    }
+
+    @GetMapping("/showAllRelations/{id}")
+    public String showAllRelations(Model model, @PathVariable("id") int id) {
+        model.addAttribute("company", companyDao.findById(id));
+        model.addAttribute("course", courseDao.showAllTheRelationsOfCourse(id));
+        for (int i = 0; i < teacherDao.showAllRelationsOfTeacher(id).size(); i++) {
+            model.addAttribute("teacher", teacherDao.showAllRelationsOfTeacher(id));
+        }
+        model.addAttribute("groups", groupsDao.showAllRelationsOfGroup(id));
+        for (int i = 0; i < studentDao.showAllRelationsOfStudent(id).size(); i++) {
+            model.addAttribute("student", studentDao.showAllRelationsOfStudent(id));
+        }
+        return "showAllRelations";
     }
 }

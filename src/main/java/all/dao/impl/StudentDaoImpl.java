@@ -1,6 +1,8 @@
 package all.dao.impl;
 
+import all.dao.GroupsDao;
 import all.dao.StudentDao;
+import all.model.Groups;
 import all.model.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -15,6 +18,8 @@ import java.util.List;
 public class StudentDaoImpl implements StudentDao {
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private GroupsDao groupsDao;
 
     @Override
     public List<Student> findAll() {
@@ -53,5 +58,19 @@ public class StudentDaoImpl implements StudentDao {
     public void clear() {
         Session session = sessionFactory.getCurrentSession();
         session.createQuery("delete from Student").executeUpdate();
+    }
+
+    @Override
+    public List<Student> showAllRelationsOfStudent(int id) {
+        List<Student> students = new ArrayList<>();
+        List<Groups> groups = groupsDao.showAllRelationsOfGroup(id);
+        for (Groups groups1 : groups) {
+            for (Student student : findAll()) {
+                Student student1 = findById(student.getId());
+                if (student.getGroup().getId() == groups1.getId())
+                    students.add(student1);
+            }
+        }
+        return students;
     }
 }

@@ -16,4 +16,6 @@ public interface CourseDao {
     void updateCourse(int id, Course course);
 
     void clear();
+
+    List<Course> showAllTheRelationsOfCourse(int id);
 }
