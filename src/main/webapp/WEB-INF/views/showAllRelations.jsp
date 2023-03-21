@@ -48,6 +48,63 @@
     </c:forEach>
     </tbody>
 </table>
+<h2 style="color: black" align="center">Groups</h2>
+<table style="color :black" align="center" border="2px">
+    <thead>
+    <tr>
+        <th>groupId</th>
+        <th>groupName</th>
+        <th>StudentsAmount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${groups}" var="gr">
+        <tr>
+            <td>${gr.id}</td>
+            <td>${gr.name}</td>
+            <td>${gr.studentsAmount}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+<h2 style="color: sandybrown" align="center">Students</h2>
+<table style="color: black" align="center" border="2px">
+    <thead>
+    <tr>
+        <th>studentId</th>
+        <th>studentName</th>
+        <th>studentAge</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${student}" var="st">
+        <tr>
+            <td>${st.id}</td>
+            <td>${st.name}</td>
+            <td>${st.age}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
+<h2 style="color: lime" align="center">Teachers</h2>
+<table style="color: deepskyblue" align="center" border="2px">
+    <thead>
+    <tr>
+        <th>teacherId</th>
+        <th>teacherName</th>
+        <th>teacherAge</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach items="${teacher}" var="teach">
+        <tr>
+            <td>teach.id</td>
+            <td>teach.name</td>
+            <td>teach.age</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
 </tr>
 </tbody>
 <a href="/get/by/${company.id}">roll back</a>

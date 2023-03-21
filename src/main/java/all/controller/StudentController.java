@@ -27,7 +27,7 @@ public class StudentController {
     }
 
     @PostMapping("/saveStudent")
-    public String saveCourse(@ModelAttribute Student student,@RequestParam("id") int id) {
+    public String saveCourse(@ModelAttribute Student student, @RequestParam("id") int id) {
         Groups groups = groupsDao.findById(id);
         student.setGroup(groups);
         studentDao.save(student);
@@ -36,7 +36,7 @@ public class StudentController {
 
     @GetMapping("/saveStudentForm")
     public String saveCoursePage(Model model) {
-        model.addAttribute("group",groupsDao.findAll());
+        model.addAttribute("group", groupsDao.findAll());
         return "student-add";
     }
 
