@@ -1,6 +1,8 @@
 package all.controller;
 
+import all.dao.CourseDao;
 import all.dao.TeacherDao;
+import all.model.Course;
 import all.model.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,11 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class TeacherController {
 
-    @Autowired
+    private final CourseDao courseDao;
     private final TeacherDao teacherDao;
 
-    public TeacherController(TeacherDao teacherDao) {
+    @Autowired
+    public TeacherController(TeacherDao teacherDao, CourseDao courseDao) {
         this.teacherDao = teacherDao;
+        this.courseDao = courseDao;
     }
 
     @GetMapping("/t")
@@ -24,7 +28,9 @@ public class TeacherController {
     }
 
     @PostMapping("/saveTeacher")
-    public String saveCourse(@ModelAttribute Teacher teacher) {
+    public String saveCourse(@ModelAttribute Teacher teacher, @RequestParam("id") int id) {
+        Course course = courseDao.findById(id);
+        teacher.setCourse(course);
         teacherDao.save(teacher);
         return "redirect:/t";
     }

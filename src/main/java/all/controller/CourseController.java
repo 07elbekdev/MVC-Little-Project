@@ -2,6 +2,7 @@ package all.controller;
 
 import all.dao.CompanyDao;
 import all.dao.CourseDao;
+import all.model.Company;
 import all.model.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +28,9 @@ public class CourseController {
     }
 
     @PostMapping("/saveCourse")
-    public String saveCourse(@ModelAttribute Course course) {
+    public String saveCourse(@ModelAttribute Course course, @RequestParam("id") int id) {
+        Company company = companyDao.findById(id);
+        course.setCompany(company);
         courseDao.save(course);
         return "redirect:/c";
     }

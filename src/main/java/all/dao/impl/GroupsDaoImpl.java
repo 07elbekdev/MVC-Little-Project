@@ -43,7 +43,6 @@ public class GroupsDaoImpl implements GroupsDao {
     public void deleteById(int id) {
         Session session = sessionFactory.getCurrentSession();
         session.createQuery("delete from Groups where id=:groupsId").setParameter("groupsId", id).executeUpdate();
-        session.createQuery("delete from Student where id=:studentId").setParameter("studentId", id).executeUpdate();
     }
 
     @Override

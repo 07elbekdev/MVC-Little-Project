@@ -2,6 +2,7 @@ package all.controller;
 
 import all.dao.GroupsDao;
 import all.dao.StudentDao;
+import all.model.Groups;
 import all.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,9 @@ public class StudentController {
     }
 
     @PostMapping("/saveStudent")
-    public String saveCourse(@ModelAttribute Student student) {
+    public String saveCourse(@ModelAttribute Student student,@RequestParam("id") int id) {
+        Groups groups = groupsDao.findById(id);
+        student.setGroup(groups);
         studentDao.save(student);
         return "redirect:/s";
     }

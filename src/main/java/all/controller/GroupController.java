@@ -1,7 +1,9 @@
 package all.controller;
 
+import all.dao.CompanyDao;
 import all.dao.CourseDao;
 import all.dao.GroupsDao;
+import all.model.Company;
 import all.model.Groups;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,11 +14,13 @@ import org.springframework.web.bind.annotation.*;
 public class GroupController {
     private final GroupsDao groupDao;
     private final CourseDao courseDao;
+    private final CompanyDao companyDao;
 
     @Autowired
-    public GroupController(GroupsDao groupDao, CourseDao courseDao) {
+    public GroupController(GroupsDao groupDao, CourseDao courseDao, CompanyDao companyDao) {
         this.groupDao = groupDao;
         this.courseDao = courseDao;
+        this.companyDao = companyDao;
     }
 
     @GetMapping("/g")
@@ -26,7 +30,9 @@ public class GroupController {
     }
 
     @PostMapping("/saveGroup")
-    public String saveCourse(@ModelAttribute Groups group) {
+    public String saveCourse(@ModelAttribute Groups group, @RequestParam("id") int id) {
+        Company company = companyDao.findById(id);
+        group.setCompany(company);
         groupDao.save(group);
         return "redirect:/g";
     }

@@ -17,11 +17,12 @@ public class Groups {
     private int id;
     private String name;
     private int studentsAmount;
-    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
     private List<Student> studentList;
     @ManyToMany(mappedBy = "groups")
     private List<Course> courses;
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST})
+    @ManyToOne
+    @JoinColumn(name = "company_id")
     private Company company;
 
     @Override
