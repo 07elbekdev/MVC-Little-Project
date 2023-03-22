@@ -42,9 +42,9 @@ public class CompanyController {
     }
 
     @GetMapping("/delete/Company/{id}")
-    public String deleteById(Model model, @PathVariable int id) {
-//        Company company = companyDao.findById(id);
-        companyDao.deleteById(id);
+    public String deleteById(@PathVariable int id) {
+        Company company = companyDao.findById(id);
+        companyDao.deleteById(company.getId());
         return "redirect:/";
     }
 

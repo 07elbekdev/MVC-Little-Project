@@ -42,9 +42,9 @@ public class CourseController {
     }
 
     @GetMapping("/delete/Course/{id}")
-    public String deleteById(Model model, @PathVariable int id) {
-//        Course course = courseDao.findById(id);
-        courseDao.deleteById(id);
+    public String deleteById(@PathVariable int id) {
+        Course course = courseDao.findById(id);
+        courseDao.deleteById(course.getId());
         return "redirect:/c";
     }
 

@@ -36,14 +36,15 @@ public class TeacherController {
     }
 
     @GetMapping("/saveTeacherForm")
-    public String saveCoursePage() {
+    public String saveCoursePage(Model model) {
+        model.addAttribute("connection", courseDao.findAll());
         return "teacher-add";
     }
 
     @GetMapping("/delete/Teacher/{id}")
     public String deleteById(Model model, @PathVariable int id) {
         Teacher teacher = teacherDao.findById(id);
-        teacherDao.deleteById(id);
+        teacherDao.deleteById(teacher.getId());
         return "redirect:/t";
     }
 

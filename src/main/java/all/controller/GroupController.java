@@ -44,9 +44,9 @@ public class GroupController {
     }
 
     @GetMapping("/delete/Group/{id}")
-    public String deleteById(Model model, @PathVariable int id) {
+    public String deleteById(@PathVariable int id) {
         Groups group = groupDao.findById(id);
-        groupDao.deleteById(id);
+        groupDao.deleteById(group.getId());
         return "redirect:/g";
     }
 

@@ -41,9 +41,9 @@ public class StudentController {
     }
 
     @GetMapping("/delete/Student/{id}")
-    public String deleteById(Model model, @PathVariable int id) {
+    public String deleteById(@PathVariable int id) {
         Student student = studentDao.findById(id);
-        studentDao.deleteById(id);
+        studentDao.deleteById(student.getId());
         return "redirect:/s";
     }
 
