@@ -87,7 +87,7 @@
     </tbody>
 </table>
 <h2 style="color: lime" align="center">Teachers</h2>
-<table style="color: deepskyblue" align="center" border="2px">
+<table style="color: black" align="center" border="2px">
     <thead>
     <tr>
         <th>teacherId</th>
@@ -98,9 +98,9 @@
     <tbody>
     <c:forEach items="${teacher}" var="teach">
         <tr>
-            <td>teach.id</td>
-            <td>teach.name</td>
-            <td>teach.age</td>
+            <td>${teach.id}</td>
+            <td>${teach.name}</td>
+            <td>${teach.age}</td>
         </tr>
     </c:forEach>
     </tbody>

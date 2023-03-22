@@ -17,7 +17,8 @@ public class Teacher {
     private String name;
     private int age;
 
-    @OneToOne(mappedBy = "teacher")
+    @OneToOne
+    @JoinColumn(name = "course_id")
     private Course course;
 
     @Override

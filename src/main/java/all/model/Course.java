@@ -15,7 +15,7 @@ public class Course {
     private int id;
     private String name;
     private int duration;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "course" ,cascade = CascadeType.ALL)
     @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     private Teacher teacher;
     @ManyToMany(cascade = CascadeType.ALL)

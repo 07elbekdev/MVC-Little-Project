@@ -28,7 +28,7 @@
     </tr>
     </tbody>
 </table>
-<a href="/showAllRelations/${comp.id}">show All the Relations</a><br>
+<a style="border: 2px; background: white" href="/showAllRelations/${comp.id}">show All the Relations</a><br>
 <a style="color: black" href="/">roll-back</a>
 </body>
 </html>
